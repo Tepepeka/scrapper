@@ -3,7 +3,7 @@ require 'open-uri'
 
 
 def open_page(url)
-    page = Nokogiri::HTML(URI.open(url))
+    return Nokogiri::HTML(URI.open(url))
 end
 
 
@@ -37,9 +37,9 @@ end
 
 
 def perform
-    my_page = open_page("https://coinmarketcap.com/fr/")
-    arr1 = scrap_crypto_name(my_page)
-    arr2 = scrap_crypto_value(my_page)
+    page = open_page("https://coinmarketcap.com/fr/")
+    arr1 = scrap_crypto_name(page)
+    arr2 = scrap_crypto_value(page)
     hash_into_array(arr1, arr2)
 end
 
